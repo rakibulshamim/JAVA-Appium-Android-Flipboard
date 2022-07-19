@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageObjectManager;
 
+import java.time.Duration;
+
 public class LoginPage extends PageObjectManager {
 
     public LoginPage(AndroidDriver driver) {
@@ -25,67 +27,67 @@ public class LoginPage extends PageObjectManager {
     By okBtn = By.id("android:id/button1");
 
     public void clickSkipForNow(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(skipForNowBtn));
         driver.findElement(skipForNowBtn).click();
     }
 
     public boolean getHomeNavIcon(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(homeView));
         return driver.findElement(homeView).isDisplayed();
     }
 
     public void clickTopicLoginBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(topicLoginBtn));
         driver.findElement(topicLoginBtn).click();
     }
 
     public void clickLoginBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
         driver.findElement(loginBtn).click();
     }
 
     public void clickEmailBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(emailBtn));
         driver.findElement(emailBtn).click();
     }
 
     public void clickNoneOfTheAbove(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(noneOfTheAboveBtn));
         driver.findElement(noneOfTheAboveBtn).click();
     }
 
     public void enterEmail(String email){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
         driver.findElement(emailField).sendKeys(email);
     }
 
     public void clickEmailNextBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(emailNextBtn));
         driver.findElement(emailNextBtn).click();
     }
 
     public void enterPassword(String password){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         driver.findElement(passwordField).sendKeys(password);
     }
 
     public String getErrorMessage(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
         return driver.findElement(errorMessage).getText();
     }
 
     public void clickOk(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(okBtn));
         driver.findElement(okBtn).click();
     }

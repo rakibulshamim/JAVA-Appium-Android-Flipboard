@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageObjectManager;
 
+import java.time.Duration;
+
 public class ChooseTopicPage extends PageObjectManager {
 
     public ChooseTopicPage(AndroidDriver driver) {
@@ -27,7 +29,7 @@ public class ChooseTopicPage extends PageObjectManager {
     public void clickTopicTechnology(){ driver.findElement(topicTechnology).click();}
     public void clickContinue(){ driver.findElement(continueBtn).click();}
     public String getLoginHeader(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginHeader));
         return driver.findElement(loginHeader).getText();
     }

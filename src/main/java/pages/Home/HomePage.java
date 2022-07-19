@@ -1,6 +1,5 @@
 package pages.Home;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -8,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageObjectManager;
+
+import java.time.Duration;
 
 public class HomePage extends PageObjectManager {
 
@@ -71,7 +72,7 @@ public class HomePage extends PageObjectManager {
     By launchTitle = By.id("flipboard.app:id/first_launch_cover_title");
 
     public void clickDailyEdition(){
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(dailyEdition));
         driver.findElement(dailyEdition).click();
     }
@@ -91,7 +92,7 @@ public class HomePage extends PageObjectManager {
         return driver.findElement(whatsYourPassionTitle).isDisplayed();
     }
     public void clickPersonalize(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(personalizeBtn));
         driver.findElement(personalizeBtn).click();
     }
@@ -108,7 +109,7 @@ public class HomePage extends PageObjectManager {
         driver.findElement(saveBtn).click();
     }
     public void clickFollowing(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(followingIcon));
         driver.findElement(followingIcon).click();
     }
@@ -125,12 +126,12 @@ public class HomePage extends PageObjectManager {
         driver.findElement(confirmUnfollowBtn).click();
     }
     public void clickExplore(){
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(exploreIcon));
         driver.findElement(exploreIcon).click();
     }
     public String getExplorePageTitle(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(exploreTitle));
         return driver.findElement(exploreTitle).getText();
     }
@@ -141,7 +142,7 @@ public class HomePage extends PageObjectManager {
         driver.findElement(searchField).sendKeys(search);
     }
     public void pressEnter(){
-        ((AndroidDriver<MobileElement>) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+        driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
     public String getEducation(){
         return driver.findElement(educationTxt).getText();
@@ -153,7 +154,7 @@ public class HomePage extends PageObjectManager {
         return driver.findElement(topicTitle).getText();
     }
     public void clickNotifications(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(notificationsIcon));
         driver.findElement(notificationsIcon).click();
     }
@@ -167,17 +168,17 @@ public class HomePage extends PageObjectManager {
         driver.findElement(updatesBtn).click();
     }
     public boolean getNotificationsList(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(notificationsList));
         return driver.findElement(notificationsList).isDisplayed();
     }
     public void clickProfile(){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
         driver.findElement(profileIcon).click();
     }
     public boolean getProfileHeader(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(profileHeader));
         return driver.findElement(profileHeader).isDisplayed();
     }
@@ -203,12 +204,12 @@ public class HomePage extends PageObjectManager {
         driver.findElement(historyIcon).click();
     }
     public String getHistoryPageTitle(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(historyTitle));
         return driver.findElement(historyTitle).getText();
     }
     public boolean getHistoryList(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(historyList));
         return driver.findElement(historyList).isDisplayed();
     }
@@ -216,7 +217,7 @@ public class HomePage extends PageObjectManager {
         driver.findElement(shareIcon).click();
     }
     public String getShareTabTitle(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(shareTabTitle));
         return driver.findElement(shareTabTitle).getText();
     }
@@ -224,7 +225,7 @@ public class HomePage extends PageObjectManager {
         driver.findElement(findFriendsICon).click();
     }
     public String getFindPeoplePageTitle(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(findPeopleTitle));
         return driver.findElement(findPeopleTitle).getText();
     }
@@ -232,7 +233,7 @@ public class HomePage extends PageObjectManager {
         driver.findElement(followBtn).click();
     }
     public boolean getFollowingMassage(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(followingMassage));
         return driver.findElement(followingMassage).isDisplayed();
     }

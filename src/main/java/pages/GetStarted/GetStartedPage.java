@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.PageObjectManager;
 
+import java.time.Duration;
+
 public class GetStartedPage extends PageObjectManager {
 
     public GetStartedPage(AndroidDriver driver) {
@@ -16,13 +18,13 @@ public class GetStartedPage extends PageObjectManager {
     By topicLogo = By.id("flipboard.app:id/topic_picker_logo");
 
     public void clickGetStartedBtn(){
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(getStartedBtn));
         driver.findElement(getStartedBtn).click();
     }
 
     public boolean getTopicLogo(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(topicLogo));
         return driver.findElement(topicLogo).isDisplayed();
     }
